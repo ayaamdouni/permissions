@@ -11,8 +11,10 @@ import {
 const requestBluetoothPermission = async () => {
 
   try {
-    const granted = await PermissionsAndroid.request(
-      PermissionsAndroid.PERMISSIONS.BLUETOOTH_SCAN,
+    const granted = await PermissionsAndroid.requestMultiple([
+      PERMISSIONS.ANDROID.BLUETOOTH_CONNECT,
+      PERMISSIONS.ANDROID.BLUETOOTH_SCAN,
+      PERMISSIONS.ANDROID.ACCESS_FINE_LOCATION,
       {
         title: 'Cool Photo App Bluetooth Permission',
         message:
